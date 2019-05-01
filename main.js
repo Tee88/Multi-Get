@@ -92,6 +92,12 @@ inquirer
       }
     },
     {
+      type: "input",
+      name: "fileName",
+      message: "Insert file name for the downloaded file.",
+      default: "final"
+    },
+    {
       type: "confirm",
       name: "keepFileParts",
       message: "Do you want to keep chunks after merging?",

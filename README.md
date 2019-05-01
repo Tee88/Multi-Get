@@ -12,5 +12,5 @@ Clone this repo to your local machine and run `npm install` then launch the CLI 
 - File is downloaded in parallel.
 - Configurable number of chunks.
 - Only the first x MiB of the file are downloaded from the server.
-- Output directory may be specified with a command-line option.
+- Output directory and file name may be specified with a command-line option.
 - File is retrieved with GET requests.

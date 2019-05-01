@@ -15,6 +15,7 @@ the files will be deleted hence saving storage space.
 
 Assumptions:
   - The file extension will always be included at the end of the URL.
+  - User will enter desired file name without extension.
 
 */
 
@@ -30,6 +31,7 @@ const downloader = answers => {
   const path = answers.path;
   const numberOfChunks = answers.numberOfChunks;
   const keepFileParts = answers.keepFileParts;
+  const fileName = answers.fileName;
 
   const extension = url.match(EXTENSION_PATTERN)[0];
 
@@ -64,7 +66,7 @@ const downloader = answers => {
           console.log("All chunks recieved");
           console.log("Merging.....");
 
-          concat(partsNames, `${path}/final${extension}`, err => {
+          concat(partsNames, `${path}/${fileName}${extension}`, err => {
             if (err) throw err;
             console.log("Merging parts successfully completed!");
             if (!keepFileParts) {
