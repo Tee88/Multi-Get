@@ -1,0 +1,25 @@
+{
+  "name": "multiget",
+  "version": "1.0.0",
+  "description": "an application that downloads part of a file from a web server, in chunks.",
+  "main": "main.js",
+  "scripts": {
+    "start": "node main.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Tee88/Multi-Get.git"
+  },
+  "author": "Taha Saleh",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Tee88/Multi-Get/issues"
+  },
+  "homepage": "https://github.com/Tee88/Multi-Get#readme",
+  "dependencies": {
+    "concat-files": "^0.1.1",
+    "inquirer": "^6.3.1",
+    "mkdirp": "^0.5.1",
+    "request": "^2.88.0"
+  }
+}
