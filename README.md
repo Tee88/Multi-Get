@@ -9,6 +9,7 @@ Clone this repo to your local machine and run `npm install` then launch the CLI 
 ## Suported Features
 
 - Source URL is specified with a required command-line option.
+- Checking if the URL supports range requests before proceeding.
 - File is downloaded in parallel.
 - Configurable number of chunks.
 - Each chunk is 1MB.
