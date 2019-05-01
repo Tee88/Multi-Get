@@ -1,5 +1,29 @@
-// const url = "https://sample-videos.com/img/Sample-jpg-image-5mb.jpg";
-// const url = "http://f39bf6aa.bwtest-aws.pravala.com/384MB.jar";
+/* inquirer is is the applications entry point as it is responsible for the Cli prompts.
+The first part here is an array of questions the user will prompted with in order
+for them to interact with the application.
+
+1. When the user inters a URL its pattern will be validated against a regex. Then a HEAD request
+will be made to check if the URL supports Ranges, so slight delay will be noticed before
+going to the next prompt.
+
+2. The user will be asked for the desired destinaion for the files to be stored in.
+it has default value of "./downloads" which will be created in the apps directory.
+
+3. The user will be asked for the number of chunks they wish to download.
+NOTE: currently if the number of chunks was bigger than the maximum chunks the file needed
+some redundant chunks will be generated with 0 bytes, but will not cause any damage to
+the final merged file.
+
+4. finally the "iquirer.prompt()" will resolve with the answers of the user to be pased into
+the .then().
+
+".then((answers)=>{
+  <YOUR CODE HERE>
+})"
+
+Which in our case is the downloader() function.
+
+*/
 
 const inquirer = require("inquirer");
 const request = require("request");

@@ -1,7 +1,27 @@
+/* The downloader function is responsible for making the GET requests
+to download the file chunks and finally merge them into a single file
+with the correct extension.
+
+Through the for-loop the function will trigger asynchronous HTTP request
+for each chunk. The chunks will be downloaded in prallel due to Node.js's asynchronous
+behaviour. The chunk files will be hidden (prefixed with '.').
+
+After the chunks are successfully downloaded they will merged into a single
+file with name 'final'.
+
+If the user chooses to delete the chunks after merging (from initial prompt)
+the files will be deleted hence saving storage space.
+
+
+Assumptions:
+  - The file extension will always be included at the end of the URL.
+
+*/
+
 const fs = require("fs");
 const request = require("request");
 const concat = require("concat-files");
-const bytesRange = require("../utils/bytesRange");
+const getBytesRange = require("../utils/getBytesRange");
 const getPartsNames = require("../utils/partsNames");
 const EXTENSION_PATTERN = /\.[0-9a-z]+$/i;
 
@@ -19,7 +39,7 @@ const downloader = answers => {
     const options = {
       url: url,
       headers: {
-        Range: bytesRange(i)
+        Range: getBytesRange(i)
       }
     };
 
